@@ -1,7 +1,7 @@
 // Template da lista de temas {light:'',dark:''}
 var themes = [{light:'bg-light',dark:'bg-ultradark'},{light:'bg-underlight',dark:'bg-dark'}, {light:'text-dark',dark:'text-light'}, {light:'text-black',dark:'text-white'}, {light:'navbar-light',dark:'navbar-dark'}, {light:'btn-dark',dark:'btn-light'},{light:'social-icons-dark',dark:'social-icons-light'}]
 
-window.onload = function (){
+function load(){
     if(localStorage.theme == 'light'){
         change_theme('light')
     }
@@ -9,6 +9,8 @@ window.onload = function (){
         change_theme('dark')
     }
 }
+
+load();
 
 $('#chage_theme').click(function (e) {
     indentify_theme()
