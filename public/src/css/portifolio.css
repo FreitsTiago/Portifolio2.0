@@ -52,7 +52,7 @@ html{
 }
 
 .beta{
-    opacity: 75%;
+    opacity: 50%;
     background-color: red !important;
     color: #000000;
     transition: 1s;
