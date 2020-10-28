@@ -1,0 +1,12 @@
+{
+  "name": "Portifolio2.0",
+  "version": "1.0.0",
+  "description": "Esta é a segunda versão do meu portifolio, feita em NodeJS, diferentimente da primeira que era feita usando PHP.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "TiagoFreitas",
+  "license": "ISC"
+}

@@ -1,0 +1,52 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.bg-ultradark{
+    background-color: #131313 !important;
+}
+
+.bg-underlight{
+    background-color: #bbbbbb !important;
+}
+
+.bg-orange{
+    background-color: #fd7e14 !important;
+}
+
+.pt-footer{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.text-black{
+    color: black;
+}
+
+.text-black-notheme{
+    color: black !important;
+}
+
+.theme{
+    transition: 1s;
+}
+
+.social-icons-light{
+    color: #ffffff;
+}
+
+.social-icons-light:hover{
+    color: #c7c7c7;
+}
+
+.social-icons-dark{
+    color: #000000;
+}
+
+.social-icons-dark:hover{
+    color: #525252;
+}
+
+.profile-picture{
+    border-radius: 10px;
+}
