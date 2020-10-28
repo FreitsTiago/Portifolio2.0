@@ -16,3 +16,7 @@ function adjust_profile(){
 }
 
 adjust_profile();
+
+setTimeout(function(){
+    $('#BETA').modal('show')
+}, 500)
