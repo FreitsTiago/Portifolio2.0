@@ -28,7 +28,7 @@ html{
 }
 
 .theme{
-    transition: 1s;
+    transition: .5s;
 }
 
 .social-icons-light{
@@ -52,7 +52,7 @@ html{
 }
 
 .beta{
-    opacity: 50%;
+    opacity: 75%;
     background-color: red !important;
     color: #000000;
     transition: 1s;
@@ -60,4 +60,15 @@ html{
 
 .beta:hover{
     opacity: 100%;
+}
+
+.animation{
+    opacity: 0;
+    transform: translate3d(0,-100px,0);
+    transition: .5s;
+}
+
+.anime{
+    opacity: 1;
+    transform: translate3d(0,0,0);
 }

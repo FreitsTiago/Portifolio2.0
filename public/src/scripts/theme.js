@@ -1,3 +1,15 @@
+// Template da lista de temas {light:'',dark:''}
+var themes = [{light:'bg-light',dark:'bg-ultradark'},{light:'bg-underlight',dark:'bg-dark'}, {light:'text-dark',dark:'text-light'}, {light:'text-black',dark:'text-white'}, {light:'navbar-light',dark:'navbar-dark'}, {light:'btn-dark',dark:'btn-light'},{light:'social-icons-dark',dark:'social-icons-light'}]
+
+window.onload = function (){
+    if(localStorage.theme == 'light'){
+        change_theme('light')
+    }
+    if(localStorage.theme == 'dark'){
+        change_theme('dark')
+    }
+}
+
 $('#chage_theme').click(function (e) {
     indentify_theme()
 });
@@ -11,41 +23,24 @@ function indentify_theme() {
         change_theme('light')
     }
 }
+
 function change_theme(to_theme) {
-    if (to_theme == 'dark') {
-        $('.bg-light').addClass('bg-ultradark');
-        $('.bg-light').removeClass('bg-light');
-        $('.bg-underlight').addClass('bg-dark');
-        $('.bg-underlight').removeClass('bg-underlight');
-        $('.text-dark').addClass('text-light');
-        $('.text-dark').removeClass('text-dark');
-        $('.text-black').addClass('text-white');
-        $('.text-black').removeClass('text-black');
-        $('.navbar-light').addClass('navbar-dark');
-        $('.navbar-light').removeClass('navbar-light');
-        $('.btn-dark').addClass('btn-light');
-        $('.btn-dark').removeClass('btn-dark');
-        $('.social-icons-dark').addClass('social-icons-light');
-        $('.social-icons-dark').removeClass('social-icons-dark');
-        $('#chage_theme').text('☀️');
-        $('#theme').text('dark');
-    }
-    if (to_theme == 'light') {
-        $('.bg-ultradark').addClass('bg-light');
-        $('.bg-ultradark').removeClass('bg-ultradark');
-        $('.bg-dark').addClass('bg-underlight');
-        $('.bg-dark').removeClass('bg-dark');
-        $('.text-light').addClass('text-dark');
-        $('.text-light').removeClass('text-light');
-        $('.text-white').addClass('text-black');
-        $('.text-white').removeClass('text-white');
-        $('.navbar-dark').addClass('navbar-light');
-        $('.navbar-dark').removeClass('navbar-dark');
-        $('.btn-light').addClass('btn-dark');
-        $('.btn-light').removeClass('btn-light');
-        $('.social-icons-light').addClass('social-icons-dark');
-        $('.social-icons-light').removeClass('social-icons-light');
+    if(to_theme == 'light'){
+        for(nowtheme of themes){
+            $('.'+nowtheme.dark).addClass(nowtheme.light);
+            $('.'+nowtheme.dark).removeClass(nowtheme.dark);
+        }
         $('#chage_theme').text('🌙');
         $('#theme').text('light');
+        localStorage.setItem('theme', 'light');
+    }
+    if(to_theme == 'dark'){
+        for(nowtheme of themes){
+            $('.'+nowtheme.light).addClass(nowtheme.dark);
+            $('.'+nowtheme.light).removeClass(nowtheme.light);
+        }
+        $('#chage_theme').text('☀️');
+        $('#theme').text('dark');
+        localStorage.setItem('theme', 'dark');
     }
 }
