@@ -11,7 +11,7 @@ window.onload = function (){
 }
 
 $('#chage_theme').click(function (e) {
-    indentify_theme()
+    indentify_theme();
 });
 
 function indentify_theme() {
