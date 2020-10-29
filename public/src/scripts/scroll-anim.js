@@ -16,10 +16,7 @@ debounce = function (func, wait, immediate) {
 
 // Função da animação
 (function () {
-    var anim_top = $('.animation-top'),
-        anim_left = $('.animation-left'),
-        anim_right = $('.animation-right'),
-        anim_fix = $('.animation-fix'),
+    var anim = $('.animation'),
         progress = $('.rUln88GN'),
         animationClass = 'anime',
         offset = $(window).height() * 3 / 4;
@@ -32,31 +29,7 @@ debounce = function (func, wait, immediate) {
 
     function animeScroll() {
         var documentTop = $(document).scrollTop();
-        anim_top.each(function () {
-            var itemTop = $(this).offset().top;
-            if (documentTop > itemTop - offset) {
-                $(this).addClass(animationClass);
-            } else {
-                $(this).removeClass(animationClass);
-            }
-        })
-        anim_left.each(function () {
-            var itemTop = $(this).offset().top;
-            if (documentTop > itemTop - offset) {
-                $(this).addClass(animationClass);
-            } else {
-                $(this).removeClass(animationClass);
-            }
-        })
-        anim_right.each(function () {
-            var itemTop = $(this).offset().top;
-            if (documentTop > itemTop - offset) {
-                $(this).addClass(animationClass);
-            } else {
-                $(this).removeClass(animationClass);
-            }
-        })
-        anim_fix.each(function () {
+        anim.each(function () {
             var itemTop = $(this).offset().top;
             if (documentTop > itemTop - offset) {
                 $(this).addClass(animationClass);

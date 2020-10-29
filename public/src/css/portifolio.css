@@ -62,27 +62,9 @@ html{
     opacity: 100%;
 }
 
-.animation-right{
-    opacity: 0;
-    transform: translate3d(200px,0,0);
-    transition: .5s;
-}
-
-.animation-left{
-    opacity: 0;
-    transform: translate3d(-200px,0,0);
-    transition: .5s;
-}
-
-.animation-top{
+.animation{
     opacity: 0;
     transform: translate3d(0,-100px,0);
-    transition: .5s;
-}
-
-.animation-fix{
-    opacity: 0;
-    transform: translate3d(0,0,-100px);
     transition: .5s;
 }
 
