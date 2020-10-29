@@ -34,6 +34,7 @@ function change_theme(to_theme) {
         }
         $('#chage_theme').text('🌙');
         $('#theme').text('light');
+        $('#chage_theme').attr("title","Tema Escuro");
         localStorage.setItem('theme', 'light');
     }
     if(to_theme == 'dark'){
@@ -43,6 +44,7 @@ function change_theme(to_theme) {
         }
         $('#chage_theme').text('☀️');
         $('#theme').text('dark');
+        $('#chage_theme').attr("title","Tema Claro");
         localStorage.setItem('theme', 'dark');
     }
 }
