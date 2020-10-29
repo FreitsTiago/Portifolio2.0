@@ -16,7 +16,10 @@ debounce = function (func, wait, immediate) {
 
 // Função da animação
 (function () {
-    var $target = $('.animation'),
+    var anim_top = $('.animation-top'),
+        anim_left = $('.animation-left'),
+        anim_right = $('.animation-right'),
+        anim_fix = $('.animation-fix'),
         progress = $('.rUln88GN'),
         animationClass = 'anime',
         offset = $(window).height() * 3 / 4;
@@ -29,7 +32,31 @@ debounce = function (func, wait, immediate) {
 
     function animeScroll() {
         var documentTop = $(document).scrollTop();
-        $target.each(function () {
+        anim_top.each(function () {
+            var itemTop = $(this).offset().top;
+            if (documentTop > itemTop - offset) {
+                $(this).addClass(animationClass);
+            } else {
+                $(this).removeClass(animationClass);
+            }
+        })
+        anim_left.each(function () {
+            var itemTop = $(this).offset().top;
+            if (documentTop > itemTop - offset) {
+                $(this).addClass(animationClass);
+            } else {
+                $(this).removeClass(animationClass);
+            }
+        })
+        anim_right.each(function () {
+            var itemTop = $(this).offset().top;
+            if (documentTop > itemTop - offset) {
+                $(this).addClass(animationClass);
+            } else {
+                $(this).removeClass(animationClass);
+            }
+        })
+        anim_fix.each(function () {
             var itemTop = $(this).offset().top;
             if (documentTop > itemTop - offset) {
                 $(this).addClass(animationClass);
@@ -43,7 +70,7 @@ debounce = function (func, wait, immediate) {
                     $('.' + bar.name).css('width', bar.value + '%');
                     $('.' + bar.name).text(bar.value + '%');
                 }
-            }, 300)
+            }, 100)
 
         } else {
             for (bar of bars) {
