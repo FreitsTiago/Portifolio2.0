@@ -1,30 +1,72 @@
-const app = require('express')
+const express = require('express');
+const app = express();
 const http = require('http').Server(app);
 const fs = require('fs');
+const nodemailer = require("nodemailer");
+const SMTP_CONFIG = require('./smtp');
 
+//Server Http
 const dir = __dirname + '/public'
 
-app.get('/', function (req, res) {
-    var content = fs.readFileSync(__dirname + "/index.html");
-    res.end(content);
+app.use(express.json());
+app.use(express.urlencoded());
+
+app.post('/send_email', (req, res) => {
+    if(req.body.name != null && req.body.email != null && req.body.msg != null){
+        send_email(req.body.name,req.body.email,req.body.msg);
+        res.send({status: 'email sent'});
+    }else{
+        res.send({status: 'error', error: 'missing information'});
+    };
 });
 
-app.use('/files', function (req, res) {
-    try {
-        try {
-            var content = fs.readFileSync(__dirname + req.url + '.html');
-            res.end(content);
-        } catch {
-            var content = fs.readFileSync(__dirname + req.url);
-            res.end(content);
-        }
-    } catch {
-        var content = fs.readFileSync(__dirname + '/404.html');
-        res.status(404);
+app.use('/', function (req, res) {
+    if (req.url == '/') {
+        var content = fs.readFileSync(dir + '/index.html');
         res.end(content);
-    }
+    } else {
+        try {
+            try {
+                var content = fs.readFileSync(dir + req.url + '.html');
+                res.end(content);
+            } catch {
+                var content = fs.readFileSync(dir + req.url);
+                res.end(content);
+            };
+        } catch {
+            var content = fs.readFileSync(dir + '/404.html');
+            res.status(404);
+            res.end(content);
+        };
+    };
+
 });
+
+//Server Email
+
+const transporter = nodemailer.createTransport({
+    host: SMTP_CONFIG.host,
+    port: SMTP_CONFIG.port,
+    secure: false,
+    auth: {
+        user: SMTP_CONFIG.user,
+        pass: SMTP_CONFIG.pass,
+    },
+    tls: {
+        rejectUnauthorized: false,
+    },
+});
+
+async function send_email(name,email,msg){
+    const mailSent = await transporter.sendMail({
+        text: 'Nome: ' + name + '\nEmail: ' + email + '\nMensagem: ' + msg,
+        subject: 'Novo contato vindo do Portfolio',
+        from: 'Portifolio <tiago.m.freitas205@gmail.com>',
+        to: 'tiago.m.freitas204@gmail.com',
+    });
+};
+
 
 http.listen(process.env.PORT || 19132, function () {
     console.log("Server is online");
-  });
+});

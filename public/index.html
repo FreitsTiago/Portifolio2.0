@@ -58,10 +58,6 @@
     </div>
   </nav>
 
-  <div class="text-center fixed-bottom beta alert alert-danger">
-    <h2>BETA</h2>
-  </div>
-
   <main role="main" class="container">
     <div class="jumbotron bg-dark theme mt-5 animation">
       <div class="row">
@@ -230,25 +226,26 @@
       <h2 class="text-white text-center">Contato</h2>
       <p class="lead text-light text-center">Aqui você consegue me enviar uma menssagem apenas preenchendo o formulario
         abaixo.</p>
-      <div class="alert alert-danger text-center">Caso queira entrar em contato va para meu outro portifolio pois esse
-        esta em beta!<a href="http://tiagofreitas.ga/" class="alert-link"> Clique Aqui!</a></div>
+        <div id="sucees_email" class="alert alert-success" role="alert" style="display: none;">
+          Sua mensagem foi enviada com sucesso!
+        </div>
       <form>
         <div class="form-group">
           <label class="text-white" for="form-name">Nome</label>
-          <input type="text" class="form-control bg-ultradark text-white" id="form-name" placeholder="Seu nome">
+          <input type="text" class="form-control bg-ultradark text-white" id="form_name" placeholder="Seu nome">
         </div>
         <div class="form-group">
           <label class="text-white" for="form-email">Endereço de email</label>
-          <input type="email" class="form-control bg-ultradark text-white" id="form-email" aria-describedby="emailHelp"
+          <input type="email" class="form-control bg-ultradark text-white" id="form_email" aria-describedby="emailHelp"
             placeholder="Seu email">
           <small id="emailHelp" class="form-text text-muted">Seu email sera utilizado para min retornar a
             mensagem.</small>
         </div>
         <div class="form-group">
           <label class="text-white" for="form-msg">Menssagem</label>
-          <input type="text" class="form-control bg-ultradark text-white" id="form-msg" placeholder="Sua mensagem">
+          <textarea class="form-control bg-ultradark text-white"  id="form_msg"> </textarea>
         </div>
-        <button type="submit" class="btn btn-danger">Enviar</button>
+        <button id="send_mail" type="button" class="btn btn-danger">Enviar</button>
       </form>
     </div>
   </main>
@@ -259,7 +256,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6 text-left">
-          <p class="text-white theme">(Desenvolvimento remotado!) Copyright (c) 2020 Tiago Freitas & Bootstrap</p>
+          <p class="text-white theme">Copyright © 2020-2021 Tiago Freitas & Bootstrap</p>
         </div>
         <div class="col text-right">
           <a target="_blank" title="GitHub: FreitsTiago" href="https://github.com/FreitsTiago"><i
@@ -275,29 +272,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Modal Bem-Vindo a BETA -->
-  <div id="BETA" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content bg-dark">
-        <div class="modal-header">
-          <h5 class="modal-title text-white">Seja Bem-Vindo</h5>
-          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Fechar">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p class="text-light">Olá, agradeço por vir visitar meu novo portifolio, que infelizmente ainda se localiza em
-            estado de beta, mas você ja pode navegar e ver os novos recursos que adicionei a ele em relação a primeira
-            versão. Se divirta! Caso precise entrar contato va até area de contato e clique para ir para o outro
-            portifolio ou simplesmente va para outro. Agradeço sua atenção desde ja!</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

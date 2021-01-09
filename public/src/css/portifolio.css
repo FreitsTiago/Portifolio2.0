@@ -51,13 +51,6 @@ html{
     border-radius: 10px;
 }
 
-.beta{
-    opacity: 75%;
-    background-color: red !important;
-    color: #000000;
-    transition: 1s;
-}
-
 .beta:hover{
     opacity: 100%;
 }
