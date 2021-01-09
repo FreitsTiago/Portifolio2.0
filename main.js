@@ -45,12 +45,12 @@ app.use('/', function (req, res) {
 //Server Email
 
 const transporter = nodemailer.createTransport({
-    host: SMTP_CONFIG.host,
-    port: SMTP_CONFIG.port,
+    host: "smtp.gmail.com",
+    port: 587,
     secure: false,
     auth: {
-        user: SMTP_CONFIG.user,
-        pass: SMTP_CONFIG.pass,
+        user: process.env.EMAIL_USER,
+        pass: process.env.PASS_USER,
     },
     tls: {
         rejectUnauthorized: false,
