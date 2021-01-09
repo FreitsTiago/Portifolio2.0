@@ -1,6 +1,6 @@
 {
-  "name": "Portifolio2.0",
-  "version": "1.0.0",
+  "name": "PortifolioTF",
+  "version": "1.2.0",
   "description": "Esta é a segunda versão do meu portifolio, feita em NodeJS, diferentimente da primeira que era feita usando PHP.",
   "main": "main.js",
   "scripts": {
@@ -8,5 +8,8 @@
   },
   "keywords": [],
   "author": "TiagoFreitas",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
