@@ -3,7 +3,6 @@ const app = express();
 const http = require('http').Server(app);
 const fs = require('fs');
 const nodemailer = require("nodemailer");
-const SMTP_CONFIG = require('./smtp');
 
 //Server Http
 const dir = __dirname + '/public'
