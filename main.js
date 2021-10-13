@@ -1,3 +1,4 @@
+require('dotenv/config')
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
@@ -57,12 +58,12 @@ async function send_email(name,email,msg){
     const mailSent = await transporter.sendMail({
         text: 'Nome: ' + name + '\nEmail: ' + email + '\nMensagem: ' + msg,
         subject: 'Novo contato vindo do Portfolio',
-        from: 'Portifolio <tiago.m.freitas205@gmail.com>',
-        to: 'tiago.m.freitas204@gmail.com',
+        from: `Portifolio <${process.env.EMAIL_USER}>`,
+        to: process.env.EMAIL_TO,
     });
 };
 
 
-http.listen(process.env.PORT || 17001, function () {
-    console.log("Server is online in: " + process.env.PORT || 17001);
+http.listen(process.env.PORT || 1515, function () {
+    console.log("Server is online in: " + (process.env.PORT || 1515));
 });
