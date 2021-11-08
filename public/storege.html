@@ -10,6 +10,9 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script>
     const server_url = 'http://storege.tiagomfreitas.xyz'
+    window.onload = () => {
+      $('#upload-form').attr('action', server_url)
+    }
   </script>
 </head>
 
@@ -28,7 +31,7 @@
           <div class="card-body bg-dark">
             <h5 class="card-title text-white">Upload de arquivos</h5>
             <p class="card-text text-white">Evite arquivos de nome com espaço, pois serão inacessíveis pelo storege!</p>
-            <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+            <form id="upload-form" action="" method="post" enctype="multipart/form-data">
 
               <div class="mb-3">
                 <label for="select-path" class="form-label text-white">Pasta:</label>
