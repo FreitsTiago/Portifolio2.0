@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Storege - TiagoFreitas</title>
+  <link rel="icon" href="http://tiagomfreitas.xyz/src/favico.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script>
+    const server_url = 'http://localhost:15998/'
+  </script>
+</head>
+
+<body style="background-color: #111111;">
+
+  <nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" style="cursor: default;">Storege</a>
+      <a class="d-flex text-danger" style="cursor: pointer; text-decoration: none;" href="http://tiagomfreitas.xyz"
+        target="_blank">Developed by TiagoFreitas</a>
+    </div>
+  </nav>
+
+  <div class="d-flex justify-content-center">
+        <div class="card bg-dark mt-3" style="width: 30rem;">
+          <div class="card-body bg-dark">
+            <h5 class="card-title text-white">Upload de arquivos</h5>
+            <p class="card-text text-white">Evite arquivos de nome com espaço, pois serão inacessíveis pelo storege!</p>
+            <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+
+              <div class="mb-3">
+                <label for="select-path" class="form-label text-white">Pasta:</label>
+                <select id="select-path" class="form-select" name="path">
+                  <option value="0">Criar</option>
+                </select>
+              </div>
+
+              <div id="new-path-ctn" class="mb-3">
+                <label for="new-path" class="form-label text-white">Nome da nova pasta:</label>
+                <input type="text" class="form-control" id="new-path" name="new_path">
+              </div>
+
+              <div class="mb-3">
+                <label for="chose-file" class="form-label text-white">Arquivo:</label>
+                <input id="chose-file" class="form-control bg-dark text-white" type="file" name="file" multiple required>
+              </div>
+              
+              <div class="mb-3">
+                <label for="key-master" class="form-label text-white">Chave de acesso:</label>
+                <input type="password" class="form-control" id="key-master" name="key" required>
+              </div>
+
+              <button type="submit" class="btn btn-danger">Enviar</button>
+            </form>
+          </div>
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+    <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", server_url + '/list-paths', false);
+      xhttp.send();
+      let paths_list = JSON.parse(xhttp.responseText)
+      for (name of paths_list) {
+        $('#select-path').append(`<option value="${name}">/${name}</option>`)
+      }
+    </script>
+    <script>
+      $('#select-path').change(() => {
+        if($('#select-path').val() == '0') {$('#new-path-ctn').show(); $('#new-path-ctn').attr('required', 'required'); return}
+
+        $('#new-path-ctn').removeAttr('required')
+        $('#new-path-ctn').hide()
+      })
+    </script>
+</body>
+
+</html>

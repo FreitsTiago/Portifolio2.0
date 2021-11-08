@@ -1,11 +1,11 @@
 //{name: "", description: "", languages: [], link: ""},
 const projects = [
-    {name: "KingPass", description: "Apresento a você meu mais novo gerenciador de senhas, o KingPass, um simples gerenciador de senhas feito para qualquer um salvar suas senhas de foma segura e simples!", languages: ["HTML","CSS","NodeJS (Back-End | Front-End)","Bootstrap"], link: "https://kingpass.herokuapp.com/"},
-    {name: "Arkab", description: "Este é um projeto de uma sala de bate papo bem simples, você entra coloca o nome que deseja usar e ja pode conversar com todos que estão na sala, porém ta bem no inicio, pretendo colocar mais funções.", languages: ["HTML", "CSS", "NodeJS (Back-End | Front-End)", "Bootstrap"], link: "https://arkab.herokuapp.com/"},
-    {name: "Portifolio", description: "Esta é a segunda versão do meu portifolio, este mesmo que você está agora.", languages: ["HTML", "CSS", "NodeJS (Back-End | Front-End)", "Bootstrap"], link: "#"},
+    { name: "KingPass", description: "Apresento a você meu mais novo gerenciador de senhas, o KingPass, um simples gerenciador de senhas feito para qualquer um salvar suas senhas de foma segura e simples!", languages: ["HTML", "CSS", "NodeJS (Back-End | Front-End)", "Bootstrap"], link: "https://kingpass.herokuapp.com/" },
+    { name: "Arkab", description: "Este é um projeto de uma sala de bate papo bem simples, você entra coloca o nome que deseja usar e ja pode conversar com todos que estão na sala, porém ta bem no inicio, pretendo colocar mais funções.", languages: ["HTML", "CSS", "NodeJS (Back-End | Front-End)", "Bootstrap"], link: "https://arkab.herokuapp.com/" },
+    { name: "Portifolio", description: "Esta é a segunda versão do meu portifolio, este mesmo que você está agora.", languages: ["HTML", "CSS", "NodeJS (Back-End | Front-End)", "Bootstrap"], link: "#" },
 ]
 
-for(project of projects){
+for (project of projects) {
     $("#projects_contain").append(`
     <div class="col-md-6">
         <div class="card mb-4 shadow-sm bg-ultradark theme">
@@ -25,7 +25,7 @@ for(project of projects){
         </div>
     </div>
     `);
-    for(language of project.languages){
+    for (language of project.languages) {
         $(`#programming_languages_${project.name.toLowerCase()}`).append(`<li>${language}</li>`)
     }
 
